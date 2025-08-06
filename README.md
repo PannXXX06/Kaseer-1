@@ -1,3 +1,4 @@
+<img width="1891" height="850" alt="image" src="https://github.com/user-attachments/assets/bf3f90e4-023c-4c95-b775-45b062592ae4" /># Point of Sales (POS) System - Laravel
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -7,55 +8,92 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+A simple Point of Sales (POS) system built with Laravel, featuring cashier management, product catalog, transaction records, and API endpoints.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![Laravel Version](https://img.shields.io/badge/Laravel-10%2B-orange?style=flat-square)
+![PHP Version](https://img.shields.io/badge/PHP-8.1%2B-blue?style=flat-square)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## System Requirements
+To run this project, ensure your server meets the following:
+- **PHP**: 8.2 or higher
+- **Laravel**: 11 or higher
+- **Database**: MySQL 5.7+ / MariaDB 10.3+ / SQLite
+- **Composer**: 2.0+
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
+- **Cashier Module**: Process sales transactions.
+- **Product Management**: Add/edit/delete products.
+- **Transaction History**: View all transactions with details.
+- **API Endpoints**:
+  - `POST /api/products`: Add new products.
+  - `GET /api/products`: Retrieve product data.
 
-## Learning Laravel
+## Database Structure
+### Tables
+1. **Barang** (Products):
+   - `id` (int, auto-increment)
+   - `Kode_Barang` (varchar)
+   - `Nama_Barang` (varchar)
+   - `Harga` (int)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. **Transaksi** (Transactions):
+   - `ID` (int, auto-increment)
+   - `Tanggal` (datetime)
+   - `Total_Barang` (int)
+   - `Total_Harga` (int)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. **Detail_Transaksi** (Transaction Details):
+   - `ID` (int, auto-increment)
+   - `ID_Transaksi` (int, foreign key)
+   - `ID_Barang` (int, foreign key)
+   - `Harga` (int)
+   - `Jumlah` (int)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/PannXXX06/Kaseer-1.git
+   cd Kaseer-1
+2. Install dependencies php & dependencies JavaScript :
+    ```bash
+    composer install
+    npm install
+3. Run Npm:
+    ```bash
+    npm run build
+    
+Or for development with hot-reload:
+    ```bash
+    npm run dev
+    
+4. Configure environment:
+    Copy .env.example to .env and update database settings:
+    DB_DATABASE=your_database_name 
+    DB_USERNAME=your_db_username
+    DB_PASSWORD=your_db_password
+   
+5.  Generate key and migrate:
+    ```bash
+    php artisan key:generate
+    php artisan migrate --seed
 
-## Laravel Sponsors
+6. Serve the application:
+    ```bash
+    php artisan serve
+Access via: http://localhost:8000
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Screenshots
 
-### Premium Partners
+### 1. Cashier Interface
+[![Cashier Module](blob:https://id.pinterest.com/1cc15c4f-46c3-44df-b88e-cff0866f2fc2)](blob:https://id.pinterest.com/1cc15c4f-46c3-44df-b88e-cff0866f2fc2)  
+*Real-time transaction processing*
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 2. Product Management
+[![Product List](https://i.imgur.com/EXAMPLE3.jpg)](https://i.imgur.com/EXAMPLE3.jpg)  
+*Complete CRUD operations*
 
-## Contributing
+### 3. Transaction History
+[![Product List](blob:https://id.pinterest.com/df13ed94-5ceb-435e-9db2-4cae33283802)](blob:https://id.pinterest.com/df13ed94-5ceb-435e-9db2-4cae33283802)  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
