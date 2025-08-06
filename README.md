@@ -16,7 +16,7 @@ A simple Point of Sales (POS) system built with Laravel, featuring cashier manag
 ## System Requirements
 To run this project, ensure your server meets the following:
 - **PHP**: 8.2 or higher
-- **Laravel**: 11 or higher
+- **Laravel**: 11 / 12
 - **Database**: MySQL 5.7+ / MariaDB 10.3+ / SQLite
 - **Composer**: 2.0+
 
